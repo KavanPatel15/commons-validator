@@ -1925,34 +1925,38 @@ public class DomainValidator implements Serializable {
      */
     // Needed by UrlValidator
     static String unicodeToASCII(final String input) {
-        if (isOnlyASCII(input)) { // skip possibly expensive processing
-            return input;
+        if (isOnlyASCII(input)) {
+            return input; // No need to convert if already ASCII
         }
+
         try {
-            final String ascii = IDN.toASCII(input);
+            final String asciiString = IDN.toASCII(input);
+
+            // Preserve trailing dots based on a specific condition
             if (IDNBUGHOLDER.IDN_TOASCII_PRESERVES_TRAILING_DOTS) {
-                return ascii;
+                return asciiString;
             }
-            final int length = input.length();
-            if (length == 0) { // check there is a last character
-                return input;
+
+            // Check if input is not empty and preserve specific trailing characters
+            final int inputLength = input.length();
+            if (inputLength > 0) {
+                final char lastCharacter = input.charAt(inputLength - 1); // Get last original character
+
+                // Restore trailing dot if it matches certain characters
+                switch (lastCharacter) {
+                    case '\u002E': // U+002E (full stop)
+                    case '\u3002': // U+3002 (ideographic full stop)
+                    case '\uFF0E': // U+FF0E (fullwidth full stop)
+                    case '\uFF61': // U+FF61 (halfwidth ideographic full stop)
+                        return asciiString + "."; // Append dot to ASCII string
+                    default:
+                        return asciiString;
+                }
             }
-            // RFC3490 3.1. 1)
-            // Whenever dots are used as label separators, the following
-            // characters MUST be recognized as dots: U+002E (full stop), U+3002
-            // (ideographic full stop), U+FF0E (fullwidth full stop), U+FF61
-            // (halfwidth ideographic full stop).
-            final char lastChar = input.charAt(length - 1); // fetch original last char
-            switch (lastChar) {
-            case '\u002E': // "." full stop
-            case '\u3002': // ideographic full stop
-            case '\uFF0E': // fullwidth full stop
-            case '\uFF61': // halfwidth ideographic full stop
-                return ascii + "."; // restore the missing stop
-            default:
-                return ascii;
-            }
-        } catch (final IllegalArgumentException e) { // input is not valid
+
+            return asciiString; // Return ASCII string if input is empty
+        } catch (final IllegalArgumentException e) {
+            // Return original input if it's not valid for conversion
             return input;
         }
     }

@@ -209,37 +209,61 @@ public class Form implements Serializable {
      * @since 1.2.0
      */
     protected void process(final Map<String, String> globalConstants, final Map<String, String> constants, final Map<String, Form> forms) {
-        if (isProcessed()) {
+        if (isAlreadyProcessed()) {
             return;
         }
 
-        int n = 0; //we want the fields from its parent first
-        if (isExtending()) {
-            final Form parent = forms.get(inherit);
-            if (parent != null) {
-                if (!parent.isProcessed()) {
-                    // we want to go all the way up the tree
-                    parent.process(constants, globalConstants, forms);
-                }
-                for (final Field f : parent.getFields()) {
-                    // we want to be able to override any fields we like
-                    if (getFieldMap().get(f.getKey()) == null) {
-                        lFields.add(n, f);
-                        getFieldMap().put(f.getKey(), f);
-                        n++;
-                    }
-                }
-            }
-        }
-        hFields.setFast(true);
-        // no need to reprocess parent's fields, we iterate from 'n'
-        for (final Iterator<Field> i = lFields.listIterator(n); i.hasNext(); ) {
-            final Field f = i.next();
-            f.process(globalConstants, constants);
-        }
+        int startIndex = processParentForm(constants, globalConstants, forms);
+        processFields(globalConstants, constants, startIndex);
 
         processed = true;
     }
+
+    private boolean isAlreadyProcessed() {
+        return isProcessed();
+    }
+
+    private int processParentForm(final Map<String, String> globalConstants, final Map<String, String> constants, final Map<String, Form> forms) {
+        int startIndex = 0;
+
+        if (isExtending()) {
+            final Form parent = forms.get(inherit);
+            if (parent != null) {
+                ensureParentProcessed(globalConstants, constants, forms, parent);
+                startIndex = addParentFields(parent);
+            }
+        }
+
+        return startIndex;
+    }
+
+    private void ensureParentProcessed(final Map<String, String> globalConstants, final Map<String, String> constants, final Map<String, Form> forms, final Form parent) {
+        if (!parent.isProcessed()) {
+            parent.process(constants, globalConstants, forms);
+        }
+    }
+
+    private int addParentFields(final Form parent) {
+        int n = 0;
+        for (final Field f : parent.getFields()) {
+            if (getFieldMap().get(f.getKey()) == null) {
+                lFields.add(n, f);
+                getFieldMap().put(f.getKey(), f);
+                n++;
+            }
+        }
+        return n;
+    }
+
+    private void processFields(final Map<String, String> globalConstants, final Map<String, String> constants, int startIndex) {
+        hFields.setFast(true);
+
+        for (final Iterator<Field> i = lFields.listIterator(startIndex); i.hasNext(); ) {
+            final Field f = i.next();
+            f.process(globalConstants, constants);
+        }
+    }
+
 
     /**
      * Sets the name/key of the parent set of validation rules.

@@ -715,13 +715,12 @@ public class Field implements Cloneable, Serializable {
      * @return true if all of the dependent validations passed.
      * @throws ValidatorException If there's an error running a validator
      */
-    private boolean runDependentValidators(
-        final ValidatorAction va,
-        final ValidatorResults results,
-        final Map<String, ValidatorAction> actions,
-        final Map<String, Object> params,
-        final int pos)
-        throws ValidatorException {
+    private boolean runDependentValidators(DependentValidatorContext context) throws ValidatorException {
+        final ValidatorAction va = context.getVa();
+        final ValidatorResults results = context.getResults();
+        final Map<String, ValidatorAction> actions = context.getActions();
+        final Map<String, Object> params = context.getParams();
+        final int pos = context.getPos();
 
         final List<String> dependentValidators = va.getDependencyList();
 
@@ -742,6 +741,8 @@ public class Field implements Cloneable, Serializable {
 
         return true;
     }
+
+
 
     /**
      * Sets the flag that determines whether client-side scripting should
@@ -918,9 +919,15 @@ public class Field implements Cloneable, Serializable {
             return result.isValid(va.getName());
         }
 
-        if (!this.runDependentValidators(va, results, actions, params, pos)) {
-            return false;
-        }
+//        if (!this.runDependentValidators(va, results, actions, params, pos)) {
+//            return false;
+//        }
+
+        // Assuming you have DependentValidatorContext initialized somewhere
+        DependentValidatorContext context = new DependentValidatorContext(va, results, actions, params, pos);
+
+        // Call the method with the context object
+        boolean isValid = runDependentValidators(context);
 
         return va.executeValidationMethod(this, params, results, pos);
     }

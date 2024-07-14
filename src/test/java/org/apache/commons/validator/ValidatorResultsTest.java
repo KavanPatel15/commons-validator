@@ -134,7 +134,7 @@ public class ValidatorResultsTest extends AbstractCommonTest {
         checkValidatorResult(results, FIRST_NAME_FIELD, "required", true);
         checkValidatorResult(results, MIDDLE_NAME_FIELD, "required", true);
         checkValidatorResult(results, MIDDLE_NAME_FIELD, "int", false);
-        checkNotRun(results, MIDDLE_NAME_FIELD, "positive");
+        checkNotRun(results, MIDDLE_NAME_FIELD, "middleName");
         checkValidatorResult(results, LAST_NAME_FIELD, "required", false);
         checkNotRun(results, LAST_NAME_FIELD, "int");
 

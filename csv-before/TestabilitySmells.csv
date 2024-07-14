@@ -1,0 +1,11 @@
+Project Name,Package Name,Type Name,Testability Smell,Cause of the Smell
+commons-validator,org.apache.commons.validator.example,ValidateExample,Excessive Dependency,The tool detected the smell in this class because the class depends on too many dependencies. The total number of dependencies is: 8
+commons-validator,org.apache.commons.validator,Field,Excessive Dependency,The tool detected the smell in this class because the class depends on too many dependencies. The total number of dependencies is: 9
+commons-validator,org.apache.commons.validator,EmailTest,Excessive Dependency,The tool detected the smell in this class because the class depends on too many dependencies. The total number of dependencies is: 8
+commons-validator,org.apache.commons.validator,ExtensionTest,Excessive Dependency,The tool detected the smell in this class because the class depends on too many dependencies. The total number of dependencies is: 8
+commons-validator,org.apache.commons.validator,MultipleConfigFilesTest,Excessive Dependency,The tool detected the smell in this class because the class depends on too many dependencies. The total number of dependencies is: 8
+commons-validator,org.apache.commons.validator,ValidatorTest,Excessive Dependency,The tool detected the smell in this class because the class depends on too many dependencies. The total number of dependencies is: 10
+commons-validator,org.apache.commons.validator,ValidatorTest.TestBean,Global State,The tool detected the smell in this class because the class can be accessed as a `global` state.
+commons-validator,org.apache.commons.validator.routines,CreditCardValidator.CreditCardRange,Global State,The tool detected the smell in this class because the class can be accessed as a `global` state.
+commons-validator,org.apache.commons.validator.routines,DomainValidator.Item,Global State,The tool detected the smell in this class because the class can be accessed as a `global` state.
+commons-validator,org.apache.commons.validator.routines,IBANValidator.Validator,Global State,The tool detected the smell in this class because the class can be accessed as a `global` state.

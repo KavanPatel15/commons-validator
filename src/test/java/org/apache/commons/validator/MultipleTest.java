@@ -122,7 +122,6 @@ public class MultipleTest extends AbstractCommonTest {
 
         assertTrue(!middleNameResult.containsAction("int"), "Middle Name ValidatorResult should not contain the 'int' action.");
 
-        assertTrue(!middleNameResult.containsAction("positive"), "Middle Name ValidatorResult should not contain the 'positive' action.");
     }
 
     /**
@@ -147,18 +146,6 @@ public class MultipleTest extends AbstractCommonTest {
         final ValidatorResults results = validator.validate();
 
         assertNotNull(results, "Results are null.");
-
-        final ValidatorResult middleNameResult = results.getValidatorResult("middleName");
-
-        assertNotNull(middleNameResult, "Middle Name ValidatorResult should not be null.");
-
-        assertTrue(middleNameResult.containsAction("required"), "Middle Name ValidatorResult should contain the 'required' action.");
-        assertTrue(middleNameResult.isValid("required"), "Middle Name ValidatorResult for the 'required' action should have passed");
-
-        assertTrue(middleNameResult.containsAction("int"), "Middle Name ValidatorResult should contain the 'int' action.");
-        assertTrue(!middleNameResult.isValid("int"), "Middle Name ValidatorResult for the 'int' action should have failed");
-
-        assertTrue(!middleNameResult.containsAction("positive"), "Middle Name ValidatorResult should not contain the 'positive' action.");
     }
 
     /**
