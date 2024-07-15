@@ -1,0 +1,89 @@
+Project Name,Package Name,Type Name,Method Name,Implementation Smell,Cause of the Smell,Method start line no
+routines,org.apache.commons.validator.routines,AbstractCalendarValidator,calculateQuarter,Magic Number,The method contains a magic number: 12,88
+routines,org.apache.commons.validator.routines,AbstractCalendarValidator,calculateQuarter,Magic Number,The method contains a magic number: 3,88
+routines,org.apache.commons.validator.routines,AbstractCalendarValidator,calculateQuarter,Magic Number,The method contains a magic number: 10,88
+routines,org.apache.commons.validator.routines,AbstractCalendarValidator,compare,Complex Conditional,The conditional expression result != 0 || field == Calendar.DATE || field == Calendar.DAY_OF_WEEK || field == Calendar.DAY_OF_WEEK_IN_MONTH is complex.,111
+routines,org.apache.commons.validator.routines,AbstractCalendarValidator,compareTime,Complex Conditional,The conditional expression result != 0 || field == Calendar.HOUR || field == Calendar.HOUR_OF_DAY is complex.,189
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,determineScale,Complex Method,Cyclomatic complexity of the method is 8,75
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,determineScale,Magic Number,The method contains a magic number: 100,75
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,determineScale,Magic Number,The method contains a magic number: 2,75
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,determineScale,Magic Number,The method contains a magic number: 1000,75
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,determineScale,Magic Number,The method contains a magic number: 3,75
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,determineScale,Magic Number,The method contains a magic number: 2,75
+routines,org.apache.commons.validator.routines,AbstractNumberValidator,getFormat,Missing default,The following switch statement is missing a default case: !org.eclipse.jdt.core.dom.SwitchStatement@6cb890ac,108
+routines,org.apache.commons.validator.routines,CodeValidator,validate,Complex Conditional,The conditional expression minLength >= 0 && code.length() < minLength || maxLength >= 0 && code.length() > maxLength is complex.,244
+routines,org.apache.commons.validator.routines,CreditCardValidator,CreditCardValidator,Complex Method,Cyclomatic complexity of the method is 8,439
+routines,org.apache.commons.validator.routines,CreditCardValidator,CreditCardValidator,Long Identifier,The length of the field MASTERCARD_VALIDATOR_PRE_OCT2016 is 32.,439
+routines,org.apache.commons.validator.routines,DomainValidator,getTLDEntries,Complex Method,Cyclomatic complexity of the method is 11,1857
+routines,org.apache.commons.validator.routines,DomainValidator,getTLDEntries,Missing default,The following switch statement is missing a default case: !org.eclipse.jdt.core.dom.SwitchStatement@824eb67,1857
+routines,org.apache.commons.validator.routines,DomainValidator,isOnlyASCII,Magic Number,The method contains a magic number: 0x7F,1907
+routines,org.apache.commons.validator.routines,DomainValidator,unicodeToASCII,Complex Method,Cyclomatic complexity of the method is 8,1919
+routines,org.apache.commons.validator.routines,DomainValidator,unicodeToASCII,Long Identifier,The length of the field IDN_TOASCII_PRESERVES_TRAILING_DOTS is 35.,1919
+routines,org.apache.commons.validator.routines,DomainValidator,unicodeToASCII,Missing default,The following switch statement is missing a default case: !org.eclipse.jdt.core.dom.SwitchStatement@2b9ac1b4,1919
+routines,org.apache.commons.validator.routines,DomainValidator,updateTLDOverride,Complex Method,Cyclomatic complexity of the method is 13,1964
+routines,org.apache.commons.validator.routines,DomainValidator,updateTLDOverride,Missing default,The following switch statement is missing a default case: !org.eclipse.jdt.core.dom.SwitchStatement@6618b9b0,1964
+routines,org.apache.commons.validator.routines,DomainValidator,DomainValidator,Complex Method,Cyclomatic complexity of the method is 9,2097
+routines,org.apache.commons.validator.routines,DomainValidator,DomainValidator,Missing default,The following switch statement is missing a default case: !org.eclipse.jdt.core.dom.SwitchStatement@49c819c7,2097
+routines,org.apache.commons.validator.routines,DomainValidator,getOverrides,Missing default,The following switch statement is missing a default case: !org.eclipse.jdt.core.dom.SwitchStatement@17d28c1d,2166
+routines,org.apache.commons.validator.routines,DomainValidator,isValidCountryCodeTld,Long Statement,The length of the statement "return (arrayContains(COUNTRY_CODE_TLDS`key) || arrayContains(myCountryCodeTLDsPlus`key)) && !arrayContains(myCountryCodeTLDsMinus`key);" is 136.,2236
+routines,org.apache.commons.validator.routines,DomainValidator,isValidGenericTld,Long Statement,The length of the statement "return (arrayContains(GENERIC_TLDS`key) || arrayContains(myGenericTLDsPlus`key)) && !arrayContains(myGenericTLDsMinus`key);" is 123.,2265
+routines,org.apache.commons.validator.routines,EmailValidator,getInstance,Long Identifier,The length of the field EMAIL_VALIDATOR_WITH_LOCAL_WITH_TLD is 35.,98
+routines,org.apache.commons.validator.routines,EmailValidator,isValid,Magic Number,The method contains a magic number: 2,163
+routines,org.apache.commons.validator.routines,IBANValidator,isValid,Complex Conditional,The conditional expression formatValidator == null || code.length() != formatValidator.ibanLength || !formatValidator.regexValidator.isValid(code) is complex.,318
+routines,org.apache.commons.validator.routines,IBANValidator,isValid,Long Statement,The length of the statement "if (formatValidator == null || code.length() != formatValidator.ibanLength || !formatValidator.regexValidator.isValid(code)) {" is 126.,318
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Complex Conditional,The conditional expression inet6Address.startsWith(":") && !inet6Address.startsWith("::") || inet6Address.endsWith(":") && !inet6Address.endsWith("::") is complex.,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Complex Conditional,The conditional expression validOctets > IPV6_MAX_HEX_GROUPS || validOctets < IPV6_MAX_HEX_GROUPS && !containsCompressedZeroes is complex.,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Complex Method,Cyclomatic complexity of the method is 21,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Long Statement,The length of the statement "if (inet6Address.startsWith(":") && !inet6Address.startsWith("::") || inet6Address.endsWith(":") && !inet6Address.endsWith("::")) {" is 131.,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Magic Number,The method contains a magic number: 2,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Magic Number,The method contains a magic number: 2,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Magic Number,The method contains a magic number: 2,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Magic Number,The method contains a magic number: 2,120
+routines,org.apache.commons.validator.routines,InetAddressValidator,isValidInet6Address,Magic Number,The method contains a magic number: 2,120
+routines,org.apache.commons.validator.routines,ISINValidator,isValid,Magic Number,The method contains a magic number: 2,454
+routines,org.apache.commons.validator.routines,ISINValidator,validate,Magic Number,The method contains a magic number: 2,470
+routines,org.apache.commons.validator.routines,ISSNValidator,extractFromEAN13,Magic Number,The method contains a magic number: 3,128
+routines,org.apache.commons.validator.routines,ISSNValidator,extractFromEAN13,Magic Number,The method contains a magic number: 10,128
+routines,org.apache.commons.validator.routines,UrlValidator,isValid,Complex Conditional,The conditional expression "file".equals(scheme) && authority != null && authority.contains(":") is complex.,348
+routines,org.apache.commons.validator.routines,UrlValidator,isValid,Complex Method,Cyclomatic complexity of the method is 9,348
+routines,org.apache.commons.validator.routines,UrlValidator,isValidAuthority,Complex Method,Cyclomatic complexity of the method is 11,403
+routines,org.apache.commons.validator.routines.checkdigit,ABANumberCheckDigit,weightedValue,Magic Number,The method contains a magic number: 3,62
+routines,org.apache.commons.validator.routines.checkdigit,CUSIPCheckDigit,toInt,Long Statement,The length of the statement "throw new CheckDigitException("Invalid Character[" + leftPos + "`"+ rightPos+ "] = '"+ charValue+ "' out of range 0 to "+ charMax);" is 131.,57
+routines,org.apache.commons.validator.routines.checkdigit,CUSIPCheckDigit,toInt,Magic Number,The method contains a magic number: 9,57
+routines,org.apache.commons.validator.routines.checkdigit,CUSIPCheckDigit,toInt,Magic Number,The method contains a magic number: 35,57
+routines,org.apache.commons.validator.routines.checkdigit,CUSIPCheckDigit,weightedValue,Magic Number,The method contains a magic number: 2,79
+routines,org.apache.commons.validator.routines.checkdigit,EAN13CheckDigit,weightedValue,Magic Number,The method contains a magic number: 2,58
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculate,Magic Number,The method contains a magic number: 2,63
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculate,Magic Number,The method contains a magic number: 4,63
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculate,Magic Number,The method contains a magic number: 98,63
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculate,Magic Number,The method contains a magic number: 9,63
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculateModulus,Magic Number,The method contains a magic number: 4,86
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculateModulus,Magic Number,The method contains a magic number: 4,86
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculateModulus,Magic Number,The method contains a magic number: 9,86
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculateModulus,Magic Number,The method contains a magic number: 100,86
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,calculateModulus,Magic Number,The method contains a magic number: 10,86
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,isValid,Complex Conditional,The conditional expression "00".equals(check) || "01".equals(check) || "99".equals(check) is complex.,110
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,isValid,Magic Number,The method contains a magic number: 2,110
+routines,org.apache.commons.validator.routines.checkdigit,IBANCheckDigit,isValid,Magic Number,The method contains a magic number: 4,110
+routines,org.apache.commons.validator.routines.checkdigit,ISBN10CheckDigit,toCheckDigit,Magic Number,The method contains a magic number: 10,58
+routines,org.apache.commons.validator.routines.checkdigit,ISBN10CheckDigit,toInt,Magic Number,The method contains a magic number: 10,76
+routines,org.apache.commons.validator.routines.checkdigit,ISBNCheckDigit,calculate,Magic Number,The method contains a magic number: 9,51
+routines,org.apache.commons.validator.routines.checkdigit,ISBNCheckDigit,calculate,Magic Number,The method contains a magic number: 12,51
+routines,org.apache.commons.validator.routines.checkdigit,ISBNCheckDigit,isValid,Magic Number,The method contains a magic number: 10,81
+routines,org.apache.commons.validator.routines.checkdigit,ISBNCheckDigit,isValid,Magic Number,The method contains a magic number: 13,81
+routines,org.apache.commons.validator.routines.checkdigit,ISINCheckDigit,calculateModulus,Magic Number,The method contains a magic number: 2,59
+routines,org.apache.commons.validator.routines.checkdigit,ISINCheckDigit,weightedValue,Magic Number,The method contains a magic number: 2,89
+routines,org.apache.commons.validator.routines.checkdigit,ISSNCheckDigit,toCheckDigit,Magic Number,The method contains a magic number: 10,63
+routines,org.apache.commons.validator.routines.checkdigit,ISSNCheckDigit,toInt,Magic Number,The method contains a magic number: 10,71
+routines,org.apache.commons.validator.routines.checkdigit,ISSNCheckDigit,weightedValue,Magic Number,The method contains a magic number: 9,80
+routines,org.apache.commons.validator.routines.checkdigit,LuhnCheckDigit,weightedValue,Magic Number,The method contains a magic number: 2,55
+routines,org.apache.commons.validator.routines.checkdigit,LuhnCheckDigit,weightedValue,Magic Number,The method contains a magic number: 9,55
+routines,org.apache.commons.validator.routines.checkdigit,LuhnCheckDigit,weightedValue,Magic Number,The method contains a magic number: 9,55
+routines,org.apache.commons.validator.routines.checkdigit,ModulusCheckDigit,sumDigits,Magic Number,The method contains a magic number: 10,41
+routines,org.apache.commons.validator.routines.checkdigit,ModulusCheckDigit,sumDigits,Magic Number,The method contains a magic number: 10,41
+routines,org.apache.commons.validator.routines.checkdigit,ModulusCheckDigit,toCheckDigit,Magic Number,The method contains a magic number: 9,149
+routines,org.apache.commons.validator.routines.checkdigit,ModulusTenCheckDigit,toString,Long Statement,The length of the statement "return getClass().getSimpleName() + "[postitionWeight=" + Arrays.toString(postitionWeight)+ "` useRightPos="+ useRightPos+ "` sumWeightedDigits="+ sumWeightedDigits+ "]";" is 170.,219
+routines,org.apache.commons.validator.routines.checkdigit,SedolCheckDigit,toInt,Long Statement,The length of the statement "throw new CheckDigitException("Invalid Character[" + leftPos + "`"+ rightPos+ "] = '"+ charValue+ "' out of range 0 to "+ charMax);" is 131.,76
+routines,org.apache.commons.validator.routines.checkdigit,SedolCheckDigit,toInt,Magic Number,The method contains a magic number: 9,76
+routines,org.apache.commons.validator.routines.checkdigit,VerhoeffCheckDigit,calculateChecksum,Magic Number,The method contains a magic number: 9,86
+routines,org.apache.commons.validator.routines.checkdigit,VerhoeffCheckDigit,calculateChecksum,Magic Number,The method contains a magic number: 8,86

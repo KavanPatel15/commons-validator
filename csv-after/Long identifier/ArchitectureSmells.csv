@@ -1,0 +1,4 @@
+Project Name,Package Name,Architecture Smell,Cause of the Smell
+routines,org.apache.commons.validator.routines,God Component,The tool detected the smell in this component because the component contains high number of classes. Number of classes in the component are: 33
+routines,org.apache.commons.validator.routines,Cyclic Dependency,The tool detected the smell in this component because this component participates in a cyclic dependency. The participating components in the cycle are: org.apache.commons.validator.routines; org.apache.commons.validator.routines.checkdigit; org.apache.commons.validator.routines
+routines,org.apache.commons.validator.routines.checkdigit,Unstable Dependency,The tool detected the smell in this component because this component depends on other components that are less stable than itself. This component depends on following less stable component(s): org.apache.commons.validator.routines
